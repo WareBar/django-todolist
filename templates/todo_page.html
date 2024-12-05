@@ -1,0 +1,95 @@
+{% extends "master.html" %}
+
+
+{% block title %}
+    Barry | To Do
+{% endblock  %}
+
+
+{% block content %}
+
+
+    <div class="Todo">
+        <div class="Header">
+            <div class="Banner"> 
+                <div class="links">
+                    <div class="link-banner">
+                        <img src="https://external-preview.redd.it/ZTKVCne_ZlanhjrqBm4x7_-TLSAsvqukF6oAB3y8ZAI.jpg?width=640&crop=smart&auto=webp&s=fa3b24c6880d8626b13fc115bbefb36cb5cd006c" alt="">
+                        <a href="github.io/WareBar/ws101-react-todolist" target='_blank'>ReactJS Version</a>
+                    </div>
+    
+                    <div class="link-banner no-animate">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/220px-GitHub_Invertocat_Logo.svg.png" alt="">
+                        <a href="https://github.com/WareBar" target='_blank'>WareBar</a>
+                    </div>
+                </div>
+
+                <img class="avatar-banner" src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/v1/attachments/delivery/asset/bb9c6ebc1ca2de847fd9365b70f3c7d4-1681631721/Rev_Staring%20Cat%20Preview/make-simple-pixel-art-animation-gif.gif" alt="banner avatar" />
+            </div>
+            <div class="Greeting">
+                <h1>Hey, {{request.user}}</h1>
+                <p>
+                    <span id='todayDate'>DATE</span>
+                    |
+                    <span id='currentTime'>TIME</span>
+                </p>
+            </div>
+        </div>
+        <div class="Form">
+            <form action="" method='post'>
+                {% csrf_token %}
+                {{addTaskForm}}
+                <button>
+                    <i class="fa-solid fa-square-plus"></i>
+				</button>
+            </form>
+
+        </div>
+        <div class="Details">
+            <p>
+                <span>Completed Task</span>
+                <span>{{checked}}/{{total}}</span>
+            </p>
+        </div>
+        <div class="TodoList">
+
+            {% for todo in tasks %}
+
+                {% if todo.completed == True %}
+                <div class="TodoItem-done">
+                    <div class="left">
+                        <div class="details">
+                            <i class="fa-solid fa-thumbtack-slash"></i>
+                            <p class='todo-item'>{{todo.created_at}}</p>
+                        </div>
+                        <p class='todo-item-checked'>{{todo.todo}}</p>
+                    </div>
+                    <div class="controls">
+                        <a href="{% url 'TASK:COMPLETED' task_id=todo.id action='UNCHECK' %}"><i class="fa-solid fa-check-to-slot"></i></a>
+                        <a href="{% url 'TASK:DELETE' task_id=todo.id %}"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </div>
+
+                {% else %}
+                <div class="TodoItem">
+                    <div class="left">
+                        <div class="details">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            <p class='todo-time'>{{todo.created_at}}</p>
+                        </div>
+                        <p>{{todo.todo}}</p>
+                    </div>
+                    
+                    <div class="controls">
+                        <a href="{% url 'TASK:COMPLETED' task_id=todo.id action='CHECK' %}"><i class="fa-solid fa-check-to-slot"></i></a>
+                        <a href="{% url 'TASK:DELETE' task_id=todo.id %}"><i class="fa-solid fa-trash-can"></i></a>
+                    </div>
+                </div>
+                {% endif %}            
+
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock  %}

@@ -1,0 +1,331 @@
+::-webkit-scrollbar{
+	width: 0;
+  }
+  
+  ::-webkit-scrollbar-track{
+	background-color: whitesmoke;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	background-color: #252525;
+  }
+
+  *{
+    margin: 0;
+    font-family: "iekie Appally", sans-serif;
+  }
+  
+  
+  body{
+    background-color: #29222A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 100vh;
+  }
+
+  .Todo{
+	background-color: #3E3341;
+	width: 400px;
+	border-radius: 10px 5px 10px 5px;
+	box-shadow: 0px 0px 20px #000;
+
+	position: relative;
+	z-index: 100;
+}
+
+.Header .Banner{
+  background-image: url('https://i.pinimg.com/originals/1f/3c/e3/1f3ce3f2fb77aeb542d616158e3b40a7.gif');
+	background-position: center center;
+	background-size: cover;
+	height: 150px;
+
+	border-radius: 10px 5px 10px 5px;
+}
+
+.Banner .avatar-banner{
+	height: 50px;
+	width: 50px;
+	border-radius: 100px;
+
+	float: right;
+	padding: 10px;
+
+	transition: .5s ease-out;
+
+}
+
+.Banner .avatar-banner{
+	animation: rotate 3s linear infinite;
+}
+
+
+
+@keyframes rotate {
+	from{
+		transform: rotateZ(0deg);
+	}
+
+	to{
+		transform: rotateZ(360deg);
+	}
+	
+}
+
+
+.Header .Greeting{
+	color: whitesmoke;
+	padding: 5px 10px;
+	text-align: left;
+}
+
+.Header .Greeting p{
+	color: grey;
+	width: 250px;
+	display: flex;
+	gap: 20px;
+	transition: .3s;
+}
+
+.Header .Greeting p:hover{
+	color: whitesmoke;
+}
+
+.Form{
+	width: 95%;
+	margin: 10px auto;
+}
+
+.Form form input{
+	background-color: #332934;
+	color: whitesmoke;
+	line-height: 30px;
+	border-radius: 5px;
+	border-color: transparent;
+	width: 88%;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+@media screen and (max-width:400px) {
+	form input{
+		width: 50vw;
+	}
+  }
+
+
+.Form form button{
+	width: 30px;
+	height: 35px;
+	background-color: transparent;
+	border-color: transparent;
+	color: whitesmoke;
+	font-size: 1.2em;
+	font-weight: bolder;
+}
+
+.Form form label{
+	display: none;
+}
+
+
+.Details{
+	background-color: #332934;
+	color: whitesmoke;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 20px;
+	font-weight: bold;
+
+	margin: 10px;
+}
+
+.Details p{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.TodoList{
+	min-height: 200px;
+	max-height: 250px;
+	overflow: auto;
+}
+
+.TodoItem{
+
+	background-color: #332934;
+	color: white;
+	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+
+	font-size: 1.1em;
+	font-weight: bold;
+	transition: .3s;
+
+}
+
+.TodoItem-done{
+	background-color: #3E3341;
+	color: black;
+	margin: 10px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: left;
+
+	font-size: 1.1em;
+	font-weight: bold;
+	transition: .3s;
+}
+
+
+
+
+
+.TodoItem:hover{
+	border-left: 5px solid whitesmoke;
+}
+
+
+.details{
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	padding: 5px 0 ;
+}
+
+.details .todo-time{
+	font-size: .6em;
+}
+
+
+
+.controls{
+	display: flex;
+	flex-direction: column;
+}
+
+.controls a{
+	padding: 5px;
+	background-color: transparent;
+	border-color: transparent;
+	color: white;
+
+	margin: 2px;
+	border-radius: 2px;
+	transition: .3s;
+}
+
+
+.controls a:hover{
+	background-color: purple;
+	border-radius: 100px;
+	color: whitesmoke;
+}
+
+.controls a:active{
+	transform: rotateZ(-45deg);
+}
+
+
+.todo-item-checked{
+	text-decoration: line-through;
+}
+
+a{
+	text-align: center;
+}
+
+
+/* .Todo .dev{
+	z-index: 0;
+
+	position: absolute;
+	top: 10px;
+	left: -45px;
+
+	background-color: #6488ea;
+	border-radius: 3px;
+	height: 40px;
+	padding: 2px 4px;
+
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	transition: .3s;
+}
+
+.Todo .dev:hover{
+	left: -80px;
+	background-color: whitesmoke;
+}
+
+
+.dev img{
+	height: 35px;
+	width: 35px;
+	border-radius: 100px;
+} */
+
+.links{
+	position: absolute;
+	width: 300px;
+}
+
+.link-banner{
+
+	margin: 10px;
+	position: relative;
+	background-color: rgba(100, 136, 234, .0);
+	border-radius: 3px;
+	height: 40px;
+	width: 35px;
+	padding: 2px 4px;
+	overflow: hidden;
+
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
+	transition: .3s;
+}
+
+.link-banner:hover{
+	width: 100%;
+}
+
+
+.link-banner a{
+	text-decoration: none;
+	font-weight: bold;
+	color: whitesmoke;
+	transition: .3s	;
+}
+
+.link-banner a:hover{
+	transform: scale(1.1);
+}
+
+
+.link-banner img{
+	height: 35px;
+	width: 35px;
+	border-radius: 100px;	
+	animation: rotate 3s linear infinite;
+}
+
+.no-animate img{
+	background-color: aquamarine;
+	animation: none;
+}
